@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>渐变计数器</title>
+    <style>
+        body{
+            background: linear-gradient(to right, #3304de, #a104f6);
+            transition: background 0.5s ease;
+            display: flex;
+            font-family: '微软雅黑', sans-serif;
+            background-size: cover;
+            justify-content: center;
+            align-items: center;
+            background-size: cover;
+            height:95vh;
+        }
+        .card{
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.3);
+            width: 400px;
+            height: 250px;
+            padding: 20px;
+            border-radius: 20px;
+            text-align: center;
+            align-items: center;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            
+        }
+        .button{
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 9px;
+            margin: 0px;
+            width: 120px;
+            height: 60px;
+            backdrop-filter: blur(10px);
+            border: 0;
+            text-align: center;
+        }
+        button:hover{
+            background: rgba(255, 255, 255, 0);
+        }
+        .numberchange{
+            font-size:xxx-large;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <p class="numberchange">0</p>
+        <span><button class="button" id="1">计数+1</button></span>&nbsp;&nbsp;
+        <span><button class="button" id="2">更换背景</button></span>
+    </div>
+    <script>
+        let num = 0;
+        document.getElementById("1").addEventListener("click",function(){
+            num++;
+            document.querySelector(".numberchange").textContent=`${num}`;
+        });
+        document.getElementById("2").addEventListener("click",function(){
+            const color1 = getRandomColor();
+            const color2 = getRandomColor();
+            document.body.style.background=`linear-gradient(to right, ${color1}, ${color2})`;
+        });
+
+        function getRandomColor() {  
+        const r = Math.floor(Math.random() * 256);  
+        const g = Math.floor(Math.random() * 256);  
+        const b = Math.floor(Math.random() * 256);   
+        return `rgb(${r},${g},${b})`;  
+        }  
+    </script>
+</body>
+</html>
